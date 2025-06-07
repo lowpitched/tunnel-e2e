@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Draggable Button Page</title>
+    <script th:src="@{/js/main.js}"></script>>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="stream-container">
+    <img th:src="@{/stream/screen}" alt="Screen Stream"/>
+</div>
+<div class="exit-button" id="exitButton">✖</div>
+<!-- 加号按钮 -->
+<div class="add-button" id="addButton">+</div>
+
+<script>
+document.getElementById('addButton').addEventListener('click', function () {
+        const button = document.createElement('div');
+        button.className = 'draggable-button';
+        button.textContent = '•';
+
+        // 设置初始位置在加号按钮附近
+        button.style.top = (document.getElementById('addButton').offsetTop + 50) + 'px';
+        button.style.left = (document.getElementById('addButton').offsetLeft) + 'px';
+
+        document.body.appendChild(button);
+
+        makeDraggable(button);
+    });
+
+    function makeDraggable(element) {
+        let offsetX = 0, offsetY = 0, isDragging = false;
+
+        element.addEventListener('mousedown', function (e) {
+            isDragging = true;
+            offsetX = e.clientX - element.offsetLeft;
+            offsetY = e.clientY - element.offsetTop;
+            element.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', function (e) {
+            if (isDragging) {
+                element.style.left = (e.clientX - offsetX) + 'px';
+                element.style.top = (e.clientY - offsetY) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function () {
+            isDragging = false;
+            element.style.cursor = 'grab';
+        });
+    }
+
+
+document.getElementById('exitButton').addEventListener('click', function () {
+    if (confirm("确定要退出吗？")) {
+        ajaxRequest('/stop')
+    }
+});
+
+</script>
+
+</body>
+</html>

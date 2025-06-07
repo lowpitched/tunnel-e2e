@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Draggable Button Page</title>
+    <script th:src="@{/js/main.js}"></script>>
+    <link rel="stylesheet" th:href="@{/css/style.css}"></link>
+</head>
+<body>
+<div class="btn-container">
+    <div class="add-button float-btn" id="addButton" onclick="addNewButton(this)">+</div>
+    <!--<div class="exit-button float-btn" id="exitButton" onclick="exist()">✖</div>-->
+    <div class="save-button float-btn" id="saveButton" onclick="saveButtonPosition()">S</div>
+</div>
+</body>
+</html>

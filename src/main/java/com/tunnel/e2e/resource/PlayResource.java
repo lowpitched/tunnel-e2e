@@ -13,8 +13,8 @@ public class PlayResource {
     private RobotService robotService;
 
     @GetMapping("/play/key/{keyCode}")
-    public void keyType(@PathVariable String keyChar) {
-        robotService.typeKey(keyChar);
+    public void keyType(@PathVariable String keyCode) {
+        robotService.typeKey(keyCode);
     }
 
     @GetMapping("/play/mouse/{x}/{y}")

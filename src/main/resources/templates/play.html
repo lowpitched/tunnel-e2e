@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Play</title>
+    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/play.js}"></script>
+    <script th:src="@{/js/setting.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}"></link>
+    <link rel="stylesheet" th:href="@{/css/dropdown.css}"></link>
+    <link rel="stylesheet" th:href="@{/css/stream.css}"></link>
+</head>
+<body>
+<div class="stream-container">
+    <img th:src="@{/stream/screen}" alt="Screen Stream"/>
+</div>
+<div class="select-wrapper">
+    <select id="templateSelector">
+        <option value="">-- 请选择模板 --</option>
+    </select>
+</div>
+</body>
+</html>

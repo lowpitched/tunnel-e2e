@@ -11,4 +11,6 @@ public class PlayButtonResp {
     private String customStyle;
     private String x;
     private String y;
+    private String buttonSize;
+
 }

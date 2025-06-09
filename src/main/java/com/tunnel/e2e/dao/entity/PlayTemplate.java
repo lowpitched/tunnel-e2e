@@ -16,7 +16,8 @@ public class PlayTemplate {
 
     private String name;
 
-    @OneToMany(mappedBy = "template", cascade= CascadeType.ALL)
+    @OneToMany(cascade= CascadeType.ALL)
+    @JoinColumn(name = "template_id") // 指定 play_button 表中外键字段名
     private List<PlayButton> buttons;
 
 }

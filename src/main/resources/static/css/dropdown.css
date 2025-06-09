@@ -1,0 +1,51 @@
+/* 自定义 select 样式 */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.select-wrapper select {
+    appearance: none; /* 去掉浏览器默认样式 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 100%;
+    padding: 10px 14px;
+    padding-right: 30px; /* 给自定义箭头留空间 */
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select-wrapper select:hover,
+.select-wrapper select:focus {
+    border-color: #888;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 自定义下拉箭头 */
+.select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #888;
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+.select-wrapper select:focus + ::after {
+    color: #333;
+}

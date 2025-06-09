@@ -1,58 +1,4 @@
 
-function saveButtonPosition() {
-    const modal = new InputModal({
-            title: '请输入模板名称',
-            placeholder: '例如：原神操作面板',
-            confirmText: '确定',
-            cancelText: '取消',
-            onConfirm: function(inputValue) {
-                console.log('用户输入:', inputValue);
-                post('');
-            },
-            onCancel: function() {
-                console.log('用户取消了输入');
-            }
-        });
-        modal.open();
-}
-
-function addNewButton(btn) {
-    const button = document.createElement('div');
-    button.className = 'draggable-button';
-    button.textContent = '•';
-
-    // 设置初始位置在加号按钮附近
-    button.style.top = (btn.offsetTop + 50) + 'px';
-    button.style.left = (btn.offsetLeft) + 'px';
-
-    document.body.appendChild(button);
-
-    makeDraggable(button);
-}
-
-function makeDraggable(element) {
-    let offsetX = 0, offsetY = 0, isDragging = false;
-
-    element.addEventListener('mousedown', function (e) {
-        isDragging = true;
-        offsetX = e.clientX - element.offsetLeft;
-        offsetY = e.clientY - element.offsetTop;
-        element.style.cursor = 'grabbing';
-    });
-
-    document.addEventListener('mousemove', function (e) {
-        if (isDragging) {
-            element.style.left = (e.clientX - offsetX) + 'px';
-            element.style.top = (e.clientY - offsetY) + 'px';
-        }
-    });
-
-    document.addEventListener('mouseup', function () {
-        isDragging = false;
-        element.style.cursor = 'grab';
-    });
-}
-
 
 function get(url,  data=null, headers={}) {
     return ajaxRequest(url, 'GET', data, headers);
@@ -68,6 +14,14 @@ function put(url, data=null, headers={}) {
 
 function del(url, data=null, headers={}) {
     return ajaxRequest(url, 'DELETE', data, headers);
+}
+
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
 }
 
 /**
@@ -97,8 +51,11 @@ async function ajaxRequest(url, method = 'GET', data = null, headers = {}) {
         if (!response.ok) {
             throw new Error(`HTTP 错误! 状态码: ${response.status}`);
         }
-
-        return await response.json(); // 或者返回 response.text()
+        const text = await response.text(); // 先以文本形式读取
+        if (!text) {
+            return null;
+        }
+        return JSON.parse(text); // 手动解析 JSON
     } catch (error) {
         console.error('AJAX 请求失败:', error);
         throw error;

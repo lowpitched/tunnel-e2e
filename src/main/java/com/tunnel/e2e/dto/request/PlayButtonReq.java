@@ -10,5 +10,6 @@ public class PlayButtonReq {
     private String keyCode;
     private String x;
     private String y;
+    private String buttonSize;
 
 }

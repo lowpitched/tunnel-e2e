@@ -23,7 +23,13 @@ body {
     user-select: none;
     z-index: 1000;
 }
-
+.grid-button {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    width: 40px;
+    height: 40px;
+}
 .add-button{
     position: absolute;
     top: 20px;
@@ -67,6 +73,8 @@ body {
         inset 0 2px 4px rgba(0, 0, 0, 0.2), /* 内阴影，制造凹陷感 */
         inset 0 -2px 4px rgba(255, 255, 255, 0.6); /* 高光部分 */
     border: 1px solid #aaa; /* 边框增强立体感 */
+    will-change: transform; /* 提前告诉浏览器该元素会变化 */
+    transform: translateZ(0);
 }
 
 .draggable-button:active {
@@ -75,3 +83,4 @@ body {
         inset 0 2px 5px rgba(0, 0, 0, 0.3);
     transform: scale(0.98); /* 略微缩小，模拟按下效果 */
 }
+

@@ -11,4 +11,15 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/settings")
+    public String settings() {
+        return "setting";
+    }
+
+    @GetMapping("/play")
+    public String play() {
+        return "play";
+    }
+
+
 }

@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
     <title>Setting</title>
-    <script th:src="@{/js/main.js}"></script>>
-    <script th:src="@{/js/dialog.js}"></script>>
+    <script th:src="@{/js/setting.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/dialog.js}"></script>
+    <script th:src="@{/js/play.js}"></script>
     <link rel="stylesheet" th:href="@{/css/style.css}"></link>
     <link rel="stylesheet" th:href="@{/css/dialog.css}"></link>
+    <link rel="stylesheet" th:href="@{/css/setting.css}"></link>
+    <link rel="stylesheet" th:href="@{/css/dropdown.css}"></link>
+    <link rel="stylesheet" th:href="@{/css/stream.css}"></link>
 </head>
 <body>
+<div class="stream-container">
+    <img th:src="@{/stream/screen}" alt="Screen Stream"/>
+</div>
+<div class="grid-overlay" id="gridOverlay"></div>
+<div class="button-group">
+    <div class="select-wrapper">
+        <select id="templateSelector">
+            <option value="">-- 请选择模板 --</option>
+        </select>
+    </div>
+    <div class="btn new-btn" onclick="showAddTemplateModal()">New</div>
+    <div class="btn delete-btn" onclick="deleteSelectedTemplate()">Del</div>
+</div>
 <div class="btn-container">
-    <div class="add-button float-btn" id="addButton" onclick="addNewButton(this)">+</div>
-    <!--<div class="exit-button float-btn" id="exitButton" onclick="exist()">✖</div>-->
+    <div class="add-button float-btn" id="addButton" onclick="showAddButtonModal()">+</div>
+    <div class="grid-button float-btn" id="toggleGrid" onclick="toggleGrid()">#</div>
     <div class="save-button float-btn" id="saveButton" onclick="saveButtonPosition()">S</div>
 </div>
-<script>
-function showInputModal() {
-    const modal = new InputModal({
-        title: '请输入按钮名称',
-        placeholder: '例如：按钮1',
-        confirmText: '确定',
-        cancelText: '取消',
-        onConfirm: function(inputValue) {
-            console.log('用户输入:', inputValue);
-            // 这里可以做后续处理，比如保存或生成新按钮
-        },
-        onCancel: function() {
-            console.log('用户取消了输入');
-        }
-    });
-
-    modal.open();
-}
-</script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+
+
+    .stream-container {
+            width: 100%;
+            height: 100%;
+            background-image: none;
+            background-image: url('your-background.jpg'); /* 替换为你自己的背景图 */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: none; /* 关闭过渡 */
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* 可选阴影效果 */
+        }
+
+    body {
+            margin: 0;
+            height: 100vh;
+            background-color: white;
+            opacity: 1; /* 页面整体透明度为100% */
+            overflow: hidden;
+            position: relative;
+        }

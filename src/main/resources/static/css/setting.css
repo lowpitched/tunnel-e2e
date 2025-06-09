@@ -1,0 +1,95 @@
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 不阻挡点击事件 */
+    background-image:
+        linear-gradient(to right, rgba(0,0,0,0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.2) 1px, transparent 1px);
+    background-size: 20px 20px; /* 每 20px 显示一条线 */
+    display: none; /* 默认隐藏 */
+    z-index: 9999;
+}
+
+.select-with-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+#templateSelector {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.button-group {
+    display: flex;
+    gap: 6px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    user-select: none;
+}
+
+.new-btn {
+    background-color: #28a745;
+}
+
+.new-btn:hover {
+    background-color: #218838;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.draggable-button {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    cursor: grab;
+    position: absolute;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.draggable-button.large-draggable {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+    line-height: 60px !important;
+    text-align: center;
+}
+
+
+
+
